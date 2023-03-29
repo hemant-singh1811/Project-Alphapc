@@ -1,0 +1,26 @@
+{
+  "name": "dbinterface1.2",
+  "version": "1.0.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "node server.js"
+  },
+  "author": "hemant singh",
+  "license": "ISC",
+  "dependencies": {
+    "create-desktop-shortcuts": "^1.10.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.2",
+    "hbs": "^4.1.2",
+    "mysql2": "^2.3.3",
+    "open": "^8.4.2"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "description": "db-interafce is solving majority of problem of mysql where lacking             local database hosting",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

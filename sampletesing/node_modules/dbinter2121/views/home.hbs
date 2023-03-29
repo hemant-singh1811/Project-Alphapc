@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tables</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/style_home.css">
+
+</head>
+
+<body>
+  <form action="/databases" id="f" method="get">
+    <input type="image" src="/home.jpg" width="50" height="50" alt="Submit" id="img">
+    <div id="d"></div>
+  </form>
+ 
+
+    <div id="logout-form">
+      <form action="/logout" method="get" id="logout">
+        <button id="logout-btn">Logout</button>
+      </form>
+    </div>
+
+  <div id="middle_main">
+     
+     <div id="db_box">
+      <h1 id="db" class="{{db_name}}">Database : </h1>
+      <select id="db_list" onchange="db_click()">
+        <option value="{{db_name}}" selected>{{db_name}}</option>
+      </select>
+     </div>
+
+    <section id="table-section">
+      <div id="nam1">
+        <div id="name">Tables</div>
+      </div>
+      <div class="tables">
+        {{#each all_tables as |d|}}
+        <form method="get" class="form">
+          <button formaction="/table/{{d}}/" class="table-btn" type="submit" class="table-btn" id="{{d}}"
+            onclick="clic('{{d}}')">{{d}}</button>
+        </form>
+        {{/each}}
+      </div>
+    </section>
+
+    <hr> 
+
+    <button id="add-table">Add new Table</button>
+
+    <div id="create_cont"> 
+      <button id="hide">cancel</button>
+      <section id="section">
+        <div id="but">
+          <button id="add" class="col-btn">Add Column</button>
+          <button id="del" class="col-btn">Delete Column</button>
+        </div>
+        <section id="creation_section">
+          <form action="/create/{{db_name}}" id="form" method="POST">
+            <div id="main" name="main">
+              <div class="di">Total colums :
+                <span id="i" class="di"></span>
+              </div>
+              <input type="number" id="tcol" name="total" value="0" hidden>
+            </div>
+            <div id="cols" class="table-section">
+              <div id="table">
+                <label for="table_name">TABLE NAME</label>
+                <input type="text" name="table_name" class="table-section" id="table_name"
+                  placeholder="enter table name" required>
+                <h3 id="warn">this table name is already exist</h3>
+              </div>
+              <div id="type" class="table-section"></div>
+              <div id="col" class="table-section"></div>
+            </div>
+
+            <br>
+            <button id="btn-reset" type="reset">Reset</button>
+            <br>
+            <button type="submit" id="create_btn" class="btn">Create Table</button>
+          </form>
+        </section>
+
+        <div id="pre-table"></div>
+      </section>
+    </div>
+
+  </div>
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script defer src="/script.js"></script>
+</body>
+
+</html>

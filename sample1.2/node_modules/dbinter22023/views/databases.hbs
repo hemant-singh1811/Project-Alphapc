@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases</title>
+    <link rel="stylesheet" href="/style_hbs.css">
+</head>
+
+<body>
+    <div id="head">
+        <div id="DB-head"> 
+            <h1>DATABASES</h1>
+        </div>
+        <form action="/logout" method="get" id="logout">
+            <button id="logout-btn">Logout</button>
+        </form>
+    </div>
+
+
+    <div>
+        <div id="sysdb">
+            <p id="server_url" style="display: none;">{{server}}</p>
+            <h2>System Databases</h2>
+            {{#each sys_databases as |database|}}
+            <button class="sys_db" disabled>{{database}}</button>
+            {{/each}}
+        </div>
+        <div id="userdb">
+            <h2>User Databases</h2>
+            {{#each databases as |database|}}
+            <form action="/{{database}}/db">
+                <button>{{database}}</button>
+            </form>
+            {{/each}}
+        </div>
+    </div>
+</body>
+
+<script>
+
+    let server_url=document.getElementById("server_url");
+
+    console.log(server_url.innerText);
+    
+    window.localStorage.clear();
+    localStorage.setItem("server_url", server_url.innerText.toString());
+
+
+</script>
+
+</html>

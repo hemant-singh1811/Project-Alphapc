@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style-show.css">
+</head>
+
+<body>
+
+  <form action="/" id="fom">
+    <input type="image" formaction="/{{db}}/db" src="/home.jpg" alt="Submit" id="img">
+    <div id="d">{{title}}</div>
+
+  </form>
+  <div id="main-container">
+    <div id="db_box">
+
+      <div id="inside-box">
+        <h1 id="db" class="{{db_name}}">Database : </h1>
+        <select id="db_list" onchange="db_click()">
+          <option value="{{db}}" selected>{{db}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="logout-form">
+      <form action="/logout" method="get" id="logout">
+        <button id="logout-btn">Logout</button>
+      </form>
+    </div>
+    
+    <section id="main-section">
+      <div id="title_searchbar">
+        <div id="title-dec">
+          <h1 id="head">Table : </h1>
+          <input id="title" value="{{title}}" name="{{title}}"></input>
+          <button formaction="/change" id="change-btn">save</button>
+        </div>
+        <div id="search-bar">
+          <input name="book" id="search_data" placeholder="Searching by...">
+          <img id="search-icon" class="icon" src="https://cdn-icons-png.flaticon.com/512/54/54481.png"></img>
+          <img id="cross-icon" class="icon"
+            src="https://cdn-icons.flaticon.com/png/512/2997/premium/2997911.png?token=exp=1638547730~hmac=b33da5f33895a87fc739cdbbd37dd2a8"></img>
+
+          <select name="select" id="select">
+            <option value="1" selected="selected">Search by</option>
+          </select>
+        </div>
+      </div>
+      <section id="alert-box">
+        <div class="alert">
+          <span class="msg">Warning:</span>
+        </div>
+      </section>
+      <div id="main-data">
+        <section id="table-view">
+          <div id="table">
+            {{#each scema as |s|}}
+            <input onmouseover="hover('{{s.Field}}')" id="{{s.Field}}" onclick="colums('{{s.Field}}')"
+              value="{{s.Field}}" class="table-entry"></input>
+            {{/each}}
+            <button id="col-edit">save</button>
+          </div>
+          <div id="table-data">
+
+
+          </div>
+
+          <br>
+        </section>
+
+
+        <table id="table1">
+
+        </table>
+
+        <h1 id="emt">{{emt}}</h1>
+        <h1 id="found">Not found</h1>
+
+        <div id="updatebox" class="wrapper">
+          <header id="drag"></header>
+
+          <div id="box">
+
+
+          </div>
+
+          <div class="action-btn">
+            <div>
+              <img id="idelete" onclick="delete_entry()"
+                src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-lineal-kiranshastry.png">
+            </div>
+            <div>
+              <button onclick="copy()" class="btn">Copy</button>
+            </div>
+            <div>
+              <button onclick="cancel()" class="btn">Cancel</button>
+            </div>
+            <div>
+              <button class="btn" onclick="update()">Update</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="buttons">
+    <button id="insert" class="btn">insert</button>
+    <button id="add_data" class="btn">Add Data</button>
+    <form action="/delete/{{title}}" id="del-form" class="del-form">
+      <button id="del-data" class="btn">delete data</button>
+    </form>
+    <form action="/table/delete/{{title}}" id="cnl-form" class="del-form">
+      <button id="del" class="btn">delete table</button>
+    </form>
+    <div id="btnexport" class="btn">Download</div>
+  </div>
+
+
+  <script defer src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script defer src="/srcipt-show.js"></script>
+
+  <script>
+    function clic(id) {
+      var btn = document.getElementById(id);
+
+      console.log('you click the button');
+      console.log('id', id);
+      console.log('name',)
+    }
+  </script>
+</body>
+
+</html>

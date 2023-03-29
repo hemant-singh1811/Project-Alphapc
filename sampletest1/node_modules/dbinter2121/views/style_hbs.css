@@ -1,0 +1,40 @@
+form {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+button {
+    height: fit-content;
+    width: fit-content;
+    padding: 5px 10px 5px 10px;
+    font-size: 30px;
+    margin: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.sys_db {}
+
+#head {
+    display: flex;
+    flex-direction: row;
+}
+
+#logout {
+    margin-left: auto;
+}
+
+#logout-btn {
+    background-color: #e54141ba;
+    font-size: 22px;
+    border: 1px;
+    font-family: auto;
+    cursor: pointer;
+}
+
+#DB-head {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: center;
+}
